@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+        <title>Frontend Mentor | Interactive rating component</title>
+        <link rel="stylesheet" href="./asstes/styles/style.css">
+</head>
+<body>
+        <main class="container">
+                <div class="card" id="card">
+                        <div class="img-container">
+                                <img src="./images/icon-star.svg" alt="">
+                        </div>
+                        <div class="text-container">
+                                <h1>How did we do?</h1>
+                                <p>
+                                        Please let us know how we did with your support request. All feedback is appreciated 
+                                        to help us improve our offering!
+                                </p>
+                                <ul>
+                                        <li class="list-btn">1</li>
+                                        <li class="list-btn">2</li>
+                                        <li class="list-btn">3</li>
+                                        <li class="list-btn">4</li>
+                                        <li class="list-btn">5</li>
+                                </ul>
+                                <button id="submit">Submit</button>
+                        </div>
+                </div>
+                <div class="thanks-card" id="thanks"   style="display: none;">
+                        <div class="img-container">
+                                <img src="./images/illustration-thank-you.svg" alt="">
+                        </div>
+                        <div class="text-container">
+                                <span id="rating-text">You selected 4 out of 5</span>
+                                <h1>Thank You!</h1>
+                                <p>
+                                        We appreciate you taking the time to give a rating. If you ever need more support, 
+                                        don't hesitate to get in touch!
+                                </p>
+                        </div>
+                </div>
+        </main>
+
+        <script>
+                const ratings = document.getElementsByClassName("list-btn");
+                const submit = document.getElementById("submit");
+                const card = document.getElementById("card");
+                const thanksCard = document.getElementById("thanks");
+                const ratingText = document.getElementById("rating-text");
+                var rating = null, clicked = false;
+
+                for(let i=0; i<ratings.length; i++) {
+                        ratings[i].addEventListener("click", (e) => {
+                                for(let j=0; j<ratings.length; j++) {
+                                        ratings[j].classList.remove("active-li");
+                                }
+                                e.target.classList.add("active-li");
+                                rating = e.target.outerText;
+                        });
+                }
+
+                submit.addEventListener("click", () => {
+                        if (rating) {
+                                if (clicked) {
+                                        ratingText.textContent = "You selected " + rating + " out of 5";
+                                        card.style.display = "block";
+                                        thanksCard.style.display = "none";
+                                } else {
+                                        ratingText.textContent = "You selected " + rating + " out of 5";
+                                        card.style.display = "none";
+                                        thanksCard.style.display = "block";
+                                }
+                        } else {
+                                alert("Select the rating bruhh..!");
+                        }
+                });
+        </script>
+
+        <footer class="attribution">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                Coded by <a href="https://www.linkedin.com/in/yashwanth-m-y-0b9b6319a/">Yashwanth.M.Y</a>.
+        </footer>
+</body>
+</html>
