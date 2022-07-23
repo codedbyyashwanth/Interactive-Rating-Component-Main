@@ -75,11 +75,11 @@ body {
                                                 width: 45px;
                                                 height: 45px;
                                         }
+                                }
 
-                                        &:hover {
-                                                color: #fff;
-                                                background-color: $medium-gray;
-                                        }
+                                .list-hover:hover {
+                                        color: #fff;
+                                        background-color: $medium-gray;
                                 }
 
                                 .active-li {

@@ -20,11 +20,11 @@
                                         to help us improve our offering!
                                 </p>
                                 <ul>
-                                        <li class="list-btn">1</li>
-                                        <li class="list-btn">2</li>
-                                        <li class="list-btn">3</li>
-                                        <li class="list-btn">4</li>
-                                        <li class="list-btn">5</li>
+                                        <li class="list-btn list-hover">1</li>
+                                        <li class="list-btn list-hover">2</li>
+                                        <li class="list-btn list-hover">3</li>
+                                        <li class="list-btn list-hover">4</li>
+                                        <li class="list-btn list-hover">5</li>
                                 </ul>
                                 <button id="submit">Submit</button>
                         </div>
@@ -56,7 +56,10 @@
                         ratings[i].addEventListener("click", (e) => {
                                 for(let j=0; j<ratings.length; j++) {
                                         ratings[j].classList.remove("active-li");
+                                        if (!ratings[j].classList.contains("list-hover"))
+                                                ratings[j].classList.add("list-hover");
                                 }
+                                e.target.classList.remove("list-hover");
                                 e.target.classList.add("active-li");
                                 rating = e.target.outerText;
                         });

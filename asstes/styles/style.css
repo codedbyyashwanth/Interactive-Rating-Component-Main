@@ -86,7 +86,7 @@ body {
   }
 }
 
-.container .card .text-container ul li:hover {
+.container .card .text-container ul .list-hover:hover {
   color: #fff;
   background-color: #7c8798;
 }
